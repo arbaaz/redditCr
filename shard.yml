@@ -1,0 +1,17 @@
+name: reddit
+version: 0.1.0
+
+authors:
+  - arbaaz <abdularbaaz@gmail.com>
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal
+
+targets:
+  reddit:
+    main: src/server.cr
+
+crystal: 0.27.2
+
+license: MIT
