@@ -5,12 +5,13 @@ describe Reddit do
 
   r = Response.from_json(File.read("spec/fixtures/india.json"))
 
-  it "should print json" do
-    puts r.first.to_json
+  it "parsing json" do
+    puts r.to_json
+    JSON.parse(r.to_json).should be_a(JSON::Any)
   end
 
   it "ups should be int" do
-    r.map do |obj|
+    r.children.map do |obj|
       obj.ups.should be_a(Int32)
       obj.title.should be_a(String)
     end
