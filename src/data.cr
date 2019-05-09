@@ -4,7 +4,7 @@ require "./post_list"
 
 class Data
   JSON.mapping(
-    children: {type: Array(Post), converter: PostLIst},
+    children: {type: Array(Post), converter: PostList},
     after: String?,
     before: String?
   )
