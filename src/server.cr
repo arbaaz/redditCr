@@ -2,10 +2,17 @@ require "http/client"
 require "kemal"
 require "./response"
 
-get "/:subreddit" do |env|
+get "/reddit" do |env|
   env.response.headers["Access-Control-Allow-Origin"] = "*"
-  subreddit = env.params.url["subreddit"]
-  url = "https://www.reddit.com/r/#{subreddit}.json"
+  query = env.params.query["query"]
+
+  params = HTTP::Params.build do |form|
+    form.add "after", env.params.query["after"] rescue nil
+    form.add "before", env.params.query["before"] rescue nil
+  end
+
+  url = "https://www.reddit.com/r/#{query}.json?#{params}"
+
   response = HTTP::Client.get url
   if response.status_code == 302
     url = response.headers["location"]
