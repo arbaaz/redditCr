@@ -1,10 +1,11 @@
 require "json"
+require "html"
 
 module MediaEmbed
   def self.from_json(pull)
     begin
       pull.on_key!("content") do
-        pull.read_string
+        HTML.unescape(pull.read_string)
       end
     rescue
       nil

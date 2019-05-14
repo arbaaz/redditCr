@@ -1,4 +1,5 @@
 require "json"
+require "html"
 
 module ImageUrl
   def self.from_json(pull)
@@ -17,7 +18,7 @@ module ImageUrl
       puts "Found exception:"
       puts exception
     end
-    result
+    HTML.unescape(result)
   end
 
   def self.to_json(_preview, json)
