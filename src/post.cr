@@ -1,6 +1,6 @@
 require "json"
 require "./image_url"
-require "./media_embed"
+require "./gif_url"
 
 class Post
   JSON.mapping(
@@ -11,6 +11,6 @@ class Post
     permalink: String?,
     preview: {type: String?, converter: ImageUrl},
     post_hint: String?,
-    media_embed: {type: String?, converter: MediaEmbed}
+    gif: {type: String?, converter: GifUrl, root: "preview"}
   )
 end
