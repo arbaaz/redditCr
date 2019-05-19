@@ -7,13 +7,11 @@ module GifUrl
     begin
       pull.on_key!("images") do
         pull.read_array do
-          pull.on_key!("source") do
-            pull.on_key!("variants") do
-              pull.on_key!("gif") do
-                pull.on_key!("source") do
-                  pull.on_key!("url") do
-                    result = pull.read_string
-                  end
+          pull.on_key!("variants") do
+            pull.on_key!("gif") do
+              pull.on_key!("source") do
+                pull.on_key!("url") do
+                  result = pull.read_string
                 end
               end
             end
@@ -21,9 +19,9 @@ module GifUrl
         end
       end
     rescue exception
-      puts "Found exception:"
+      puts "Found exception: AR"
       puts exception
-      "https://media.giphy.com/media/xTiN0L7EW5trfOvEk0/giphy.gif"
+      result = "https://media.giphy.com/media/xTiN0L7EW5trfOvEk0/giphy.gif"
     end
     HTML.unescape(result)
   end

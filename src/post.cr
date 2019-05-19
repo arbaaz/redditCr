@@ -9,8 +9,8 @@ class Post
     title: String?,
     url: String?,
     permalink: String?,
-    preview: {type: String?, converter: ImageUrl},
     post_hint: String?,
-    gif: {type: String?, converter: GifUrl, root: "preview"}
-  )
+    preview: {type: String?, converter: ImageUrl},
+      # preview: {type: String?, converter: GifUrl}
+)
 end

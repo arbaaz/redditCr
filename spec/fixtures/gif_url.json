@@ -1,0 +1,13 @@
+{
+  "images": [
+    {
+      "variants": {
+        "gif": {
+          "source": {
+            "url": "http://google.com/q=hello.gif"
+          }
+        }
+      }
+    }
+  ]
+}
