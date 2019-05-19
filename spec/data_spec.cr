@@ -6,6 +6,5 @@ describe Data do
 
   it "after should be string" do
     r.after.should be_a(String)
-    puts r.to_json
   end
 end

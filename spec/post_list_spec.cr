@@ -6,7 +6,6 @@ describe PostList do
   r = PostList.from_json(pull)
 
   it "id should be string" do
-    puts r.to_json
     r.map do |item|
       item.id.should be_a(String)
     end

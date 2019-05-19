@@ -12,7 +12,6 @@ describe Response do
   end
 
   it "to json" do
-    puts r.to_json
     JSON.parse(r.to_json).should be_a(JSON::Any)
   end
 end
