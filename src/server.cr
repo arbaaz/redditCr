@@ -9,7 +9,7 @@ get "/reddit" do |env|
   params = HTTP::Params.build do |form|
     form.add "after", env.params.query["after"] rescue nil
     form.add "before", env.params.query["before"] rescue nil
-    form.add "limit", "100"
+    form.add "limit", env.params.query["count"] rescue "20"
   end
 
   url = "https://www.reddit.com/r/#{query}.json?#{params}"
