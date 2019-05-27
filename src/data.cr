@@ -6,6 +6,7 @@ class Data
   JSON.mapping(
     children: {type: Array(Post), converter: PostList},
     after: String?,
-    before: String?
+    before: String?,
+    subreddit: String?
   )
 end

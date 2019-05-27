@@ -1,5 +1,6 @@
 require "http/client"
 require "kemal"
+require "uri"
 require "./response"
 
 get "/reddit" do |env|
@@ -16,10 +17,12 @@ get "/reddit" do |env|
 
   response = HTTP::Client.get url
   if response.status_code == 302
-    url = response.headers["location"]
+    url = URI.parse response.headers["location"]
+    query = url.path.to_s.split('/')[2]
     response = HTTP::Client.get url
   end
   parsed_response = Response.from_json(response.body)
+  parsed_response.subreddit = query
   parsed_response.to_json
 end
 
